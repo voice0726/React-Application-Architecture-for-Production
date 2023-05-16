@@ -1,23 +1,26 @@
 import { PlusSquareIcon } from '@chakra-ui/icons';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 
-import { Button } from './button';
+import { Button, ButtonProps } from './button';
 
-const meta: Meta<typeof Button> = {
+const meta: Meta = {
   title: 'Components/Button',
   component: Button,
 };
+
 export default meta;
 
-export const Default: StoryObj<typeof Button> = {
-  args: {
-    children: 'Title',
-  },
+const Template: Story<ButtonProps> = (props) => <Button {...props} />;
+
+export const Default = Template.bind({});
+
+Default.args = {
+  children: 'Click Me',
 };
 
-export const WithIcon: StoryObj<typeof Button> = {
-  args: {
-    children: 'Click Me',
-    icon: <PlusSquareIcon />,
-  },
+export const WithIcon = Template.bind({});
+
+WithIcon.args = {
+  children: 'Click Me',
+  icon: <PlusSquareIcon />,
 };

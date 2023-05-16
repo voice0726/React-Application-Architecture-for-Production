@@ -9,6 +9,7 @@ export type InputFieldProps = {
 
 export const InputField = forwardRef((props: InputFieldProps, ref) => {
   const { type = 'text', label, error, ...inputProps } = props;
+
   return (
     <FormControl>
       {label && <FormLabel>{label}</FormLabel>}

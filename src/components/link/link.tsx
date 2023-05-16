@@ -17,7 +17,6 @@ const variants = {
   },
   outline: {
     variant: 'outline',
-    color: 'primary',
     bg: 'white',
   },
 };
@@ -33,7 +32,7 @@ export type LinkProps = {
 export const Link = ({ href, children, variant = 'link', icon, shallow = false }: LinkProps) => {
   return (
     <NextLink shallow={shallow} href={href} passHref>
-      <Button leftIcon={icon} as="a" {...variants[variant]}>
+      <Button leftIcon={icon} {...variants[variant]}>
         {children}
       </Button>
     </NextLink>
