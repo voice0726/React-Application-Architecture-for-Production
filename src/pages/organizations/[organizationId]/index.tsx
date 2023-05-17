@@ -9,8 +9,10 @@ import { getOrganization, OrganizationInfo } from '@/features/organizations';
 import { PublicLayout } from '@/layouts/public-layout';
 
 type PublicOrganizationPageProps = InferGetServerSidePropsType<typeof getServerSideProps>;
+
 const PublicOrganizationPage = ({ organization, jobs }: PublicOrganizationPageProps) => {
   if (!organization) return <NotFound />;
+
   return (
     <>
       <Seo title={organization.name} />
@@ -33,6 +35,7 @@ export default PublicOrganizationPage;
 
 export const getServerSideProps = async ({ params }: GetServerSidePropsContext) => {
   const organizationId = params?.organizationId as string;
+
   const [organization, jobs] = await Promise.all([
     getOrganization({ organizationId }).catch(() => null),
     getJobs({
@@ -41,6 +44,7 @@ export const getServerSideProps = async ({ params }: GetServerSidePropsContext) 
       },
     }).catch(() => [] as Job[]),
   ]);
+
   return {
     props: {
       organization,

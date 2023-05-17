@@ -10,13 +10,17 @@ import { DashboardLayout } from '@/layouts/dashboard-layout';
 const DashboardJobPage = () => {
   const router = useRouter();
   const jobId = router.query.jobId as string;
+
   const job = useJob({ jobId });
+
   if (job.isLoading) {
     return <Loading />;
   }
+
   if (!job.data) {
     return <NotFound />;
   }
+
   return (
     <>
       <Seo title={`${job.data.position} | ${job.data.location}`} />
@@ -28,4 +32,5 @@ const DashboardJobPage = () => {
 DashboardJobPage.getLayout = function getLayout(page: ReactElement) {
   return <DashboardLayout>{page}</DashboardLayout>;
 };
+
 export default DashboardJobPage;
