@@ -4,9 +4,9 @@ import { ReactElement } from 'react';
 
 import { Link } from '@/components/link';
 import { Seo } from '@/components/seo';
+import { useUser } from '@/features/auth';
 import { JobsList, useJobs } from '@/features/jobs';
 import { DashboardLayout } from '@/layouts/dashboard-layout';
-import { useUser } from '@/testing/test-data';
 
 const DashboardJobsPage = () => {
   const user = useUser();
