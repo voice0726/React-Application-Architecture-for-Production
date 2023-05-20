@@ -13,10 +13,13 @@ export type CreateJobFormProps = {
 
 export const CreateJobForm = ({ onSuccess }: CreateJobFormProps) => {
   const createJob = useCreateJob({ onSuccess });
+
   const { register, handleSubmit, formState } = useForm<CreateJobData>();
+
   const onSubmit = (data: CreateJobData) => {
     createJob.submit({ data });
   };
+
   return (
     <Box w="full">
       <Stack as="form" onSubmit={handleSubmit(onSubmit)} w="full" spacing="8">
@@ -41,6 +44,7 @@ export const CreateJobForm = ({ onSuccess }: CreateJobFormProps) => {
           })}
           error={formState.errors['location']}
         />
+
         <InputField
           type="textarea"
           label="Info"
@@ -49,6 +53,7 @@ export const CreateJobForm = ({ onSuccess }: CreateJobFormProps) => {
           })}
           error={formState.errors['info']}
         />
+
         <Button isDisabled={createJob.isLoading} isLoading={createJob.isLoading} type="submit">
           Create
         </Button>

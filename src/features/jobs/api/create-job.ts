@@ -25,5 +25,6 @@ export const useCreateJob = ({ onSuccess }: UseCreateJobOptions = {}) => {
       onSuccess?.(job);
     },
   });
+
   return { submit, isLoading };
 };

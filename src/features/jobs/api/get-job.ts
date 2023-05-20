@@ -17,5 +17,6 @@ export const useJob = ({ jobId }: GetJobOptions) => {
     queryKey: ['jobs', jobId],
     queryFn: () => getJob({ jobId }),
   });
+
   return { data, isLoading };
 };

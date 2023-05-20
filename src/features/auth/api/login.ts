@@ -25,5 +25,6 @@ export const useLogin = ({ onSuccess }: UseLoginOptions = {}) => {
       onSuccess?.(user);
     },
   });
+
   return { submit, isLoading };
 };

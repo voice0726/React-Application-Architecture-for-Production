@@ -5,8 +5,7 @@ import { ReactNode } from 'react';
 
 import { Button } from '@/components/button';
 import { Link } from '@/components/link';
-import { useLogout, useUser } from '@/features/auth';
-import { Protected } from '@/features/auth';
+import { Protected, useUser, useLogout } from '@/features/auth';
 
 type DashboardLayoutProps = {
   children: ReactNode;
@@ -35,6 +34,7 @@ const Navbar = () => {
   const logout = useLogout({
     onSuccess: () => router.push('/auth/login'),
   });
+
   return (
     <Box as="nav" bg="primary" color="primaryAccent">
       <Container maxW="container.lg" size="3xl" py="3">

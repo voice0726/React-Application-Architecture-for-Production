@@ -23,6 +23,7 @@ export const useJobs = ({ params }: GetJobsOptions) => {
     enabled: !!params.organizationId,
     initialData: [],
   });
+
   return {
     data,
     isLoading: isFetching && !isFetched,

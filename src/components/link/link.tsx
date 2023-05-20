@@ -1,6 +1,5 @@
 import { Button } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { ReactNode } from 'react';
 
 const variants = {
   link: {
@@ -23,7 +22,7 @@ const variants = {
 
 export type LinkProps = {
   href: string;
-  children: ReactNode;
+  children: React.ReactNode;
   variant?: keyof typeof variants;
   icon?: JSX.Element;
   shallow?: boolean;

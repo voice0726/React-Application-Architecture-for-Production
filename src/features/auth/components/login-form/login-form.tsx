@@ -13,7 +13,9 @@ export type LoginFormProps = {
 
 export const LoginForm = ({ onSuccess }: LoginFormProps) => {
   const login = useLogin({ onSuccess });
+
   const { register, handleSubmit, formState } = useForm<LoginData>();
+
   const onSubmit = (data: LoginData) => {
     login.submit(data);
   };

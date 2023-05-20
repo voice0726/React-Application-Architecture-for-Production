@@ -3,6 +3,7 @@ import { createStore, useStore } from 'zustand';
 import { uid } from '@/utils/uid';
 
 export type NotificationType = 'info' | 'warning' | 'success' | 'error';
+
 export type Notification = {
   id: string;
   type: NotificationType;
@@ -10,6 +11,7 @@ export type Notification = {
   duration?: number;
   message?: string;
 };
+
 export type NotificationsStore = {
   notifications: Notification[];
   showNotification: (notification: Omit<Notification, 'id'>) => void;

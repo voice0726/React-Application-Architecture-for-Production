@@ -19,5 +19,6 @@ export const useLogout = ({ onSuccess }: UseLogoutOptions = {}) => {
       onSuccess?.();
     },
   });
+
   return { submit, isLoading };
 };

@@ -8,9 +8,8 @@ import { DashboardLayout } from '@/layouts/dashboard-layout';
 import { useNotifications } from '@/stores/notifications';
 
 const DashboardCreateJobPage = () => {
-  const { showNotification } = useNotifications();
-
   const router = useRouter();
+  const { showNotification } = useNotifications();
 
   const onSuccess = () => {
     showNotification({

@@ -13,5 +13,6 @@ export const useUser = () => {
     queryKey: ['auth-user'],
     queryFn: () => getAuthUser(),
   });
+
   return { data, isLoading };
 };

@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { Notifications } from '@/components/notifications';
+import { IS_DEVELOPMENT } from '@/config/constants';
 import { theme } from '@/config/theme';
 import { queryClient } from '@/lib/react-query';
 
@@ -15,14 +16,14 @@ type AppProviderProps = {
 export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <ChakraProvider theme={theme}>
-      <ErrorBoundary fallback={<div>Something went wrong!</div>} onError={console.error}>
-        <GlobalStyle />
-        <Notifications />
-        <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools initialIsOpen={false} />
+      <GlobalStyle />
+      <Notifications />
+      <QueryClientProvider client={queryClient}>
+        {IS_DEVELOPMENT && <ReactQueryDevtools initialIsOpen={false} />}
+        <ErrorBoundary fallback={<div>Something went wrong!</div>} onError={console.error}>
           {children}
-        </QueryClientProvider>
-      </ErrorBoundary>
+        </ErrorBoundary>
+      </QueryClientProvider>
     </ChakraProvider>
   );
 };

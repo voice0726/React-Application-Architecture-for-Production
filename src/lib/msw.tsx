@@ -7,7 +7,8 @@ import { db, handlers } from '@/testing/mocks';
 export type MSWWrapperProps = {
   children: ReactNode;
 };
-import('@/testing/mocks/initialize');
+
+require('@/testing/mocks/initialize');
 
 export const MSWWrapper = ({ children }: MSWWrapperProps) => {
   return (

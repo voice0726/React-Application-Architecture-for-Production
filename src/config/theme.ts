@@ -2,7 +2,7 @@ import { extendTheme } from '@chakra-ui/react';
 
 const colors = {
   primary: '#1a365d',
-  primaryAccent: '#ffffff',
+  primaryAccent: 'white',
 };
 
 const styles = {
@@ -11,6 +11,7 @@ const styles = {
       height: '100%',
       bg: 'gray.50',
     },
+
     '#__next': {
       height: '100%',
       bg: 'gray.50',

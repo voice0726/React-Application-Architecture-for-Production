@@ -4,7 +4,9 @@ import { Notification, NotificationType, useNotifications } from '@/stores/notif
 
 export const Notifications = () => {
   const { notifications, dismissNotification } = useNotifications();
+
   if (notifications.length < 1) return null;
+
   return (
     <Box as="section" p="4" position="fixed" top="12" right="0" zIndex="1">
       <Flex gap="4" direction="column-reverse">
@@ -38,6 +40,7 @@ type NotificationToastProps = {
 
 const NotificationToast = ({ notification, onDismiss }: NotificationToastProps) => {
   const { id, type, title, message } = notification;
+
   return (
     <Box w={{ base: 'full', sm: 'md' }} boxShadow="md" bg="white" borderRadius="lg" {...notificationVariants[type]}>
       <Stack direction="row" p="4" spacing="3" justifyContent="space-between">
