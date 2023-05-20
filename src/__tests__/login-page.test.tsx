@@ -29,10 +29,10 @@ describe('Login Page', () => {
       password: 'password',
     };
 
-    userEvent.type(emailInput, credentials.email);
-    userEvent.type(passwordInput, credentials.password);
+    await userEvent.type(emailInput, credentials.email);
+    await userEvent.type(passwordInput, credentials.password);
 
-    userEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     await waitFor(() => expect(router.replace).toHaveBeenCalledWith('/dashboard/jobs'));
   });

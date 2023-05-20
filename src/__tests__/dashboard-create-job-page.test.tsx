@@ -40,12 +40,12 @@ describe('Dashboard Create Job Page', () => {
       name: /create/i,
     });
 
-    userEvent.type(positionInput, jobData.position);
-    userEvent.type(locationInput, jobData.location);
-    userEvent.type(departmentInput, jobData.department);
-    userEvent.type(infoInput, jobData.info);
+    await userEvent.type(positionInput, jobData.position);
+    await userEvent.type(locationInput, jobData.location);
+    await userEvent.type(departmentInput, jobData.department);
+    await userEvent.type(infoInput, jobData.info);
 
-    userEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     await waitFor(() => expect(screen.getByText(/job created!/i)).toBeInTheDocument());
   });
