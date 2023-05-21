@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Loading } from './loading';
 
@@ -9,6 +9,6 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story = (props) => <Loading {...props} />;
+type Story = StoryObj<typeof Loading>;
 
-export const Default = Template.bind({});
+export const Default: Story = {};

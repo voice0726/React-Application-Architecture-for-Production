@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { NotFound } from './not-found';
 
@@ -8,7 +8,6 @@ const meta: Meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof NotFound>;
 
-const Template: Story = (props) => <NotFound {...props} />;
-
-export const Default = Template.bind({});
+export const Default: Story = {};

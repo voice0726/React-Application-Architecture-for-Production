@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { InfoCard, InfoCardProps } from './info-card';
+import { InfoCard } from './info-card';
 
 const meta: Meta = {
   title: 'Components/InfoCard',
@@ -9,11 +9,11 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<InfoCardProps> = (props) => <InfoCard {...props} />;
+type Story = StoryObj<typeof InfoCard>;
 
-export const Default = Template.bind({});
-
-Default.args = {
-  label: 'Full Name',
-  value: 'John Doe',
+export const Default: Story = {
+  args: {
+    label: 'Full Name',
+    value: 'John Doe',
+  },
 };

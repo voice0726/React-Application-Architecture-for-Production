@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { testData } from '../../testing/test-data';
+import { testData } from '@/testing/test-data';
 
 import { DataTable, DataTableProps } from './data-table';
 
@@ -28,26 +28,26 @@ const columns: DataTableProps<(typeof data)[0]>['columns'] = [
   },
 ];
 
-const Template: Story<DataTableProps<(typeof data)[0]>> = (props) => <DataTable {...props} />;
+type Story = StoryObj<typeof DataTable<(typeof data)[0]>>;
 
-export const Default = Template.bind({});
-
-Default.args = {
-  columns,
-  data,
+export const Default: Story = {
+  args: {
+    data,
+    columns,
+  },
 };
 
-export const Empty = Template.bind({});
-
-Empty.args = {
-  columns,
-  data: [],
+export const Empty: Story = {
+  args: {
+    data: [],
+    columns,
+  },
 };
 
-export const Loading = Template.bind({});
-
-Loading.args = {
-  columns,
-  data: [],
-  isLoading: true,
+export const Loading: Story = {
+  args: {
+    data: [],
+    columns,
+    isLoading: true,
+  },
 };

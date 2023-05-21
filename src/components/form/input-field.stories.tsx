@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { InputField, InputFieldProps } from './input-field';
+import { InputField } from './input-field';
 
 const meta: Meta = {
   title: 'Components/Form/InputField',
@@ -9,20 +9,20 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<InputFieldProps> = (props) => <InputField {...props} />;
+type Story = StoryObj<typeof InputField>;
 
-export const Default = Template.bind({});
-
-Default.args = {
-  label: 'Name',
+export const Default: Story = {
+  args: {
+    label: 'Name',
+  },
 };
 
-export const WithError = Template.bind({});
-
-WithError.args = {
-  label: 'Name',
-  error: {
-    type: 'required',
-    message: 'Name is required!',
+export const WithError: Story = {
+  args: {
+    label: 'Name',
+    error: {
+      type: 'required',
+      message: 'Name is required!',
+    },
   },
 };
