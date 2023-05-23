@@ -33,12 +33,17 @@ const getTableColumns = (organizationId: string, type: JobListType) => {
       field: 'id',
       render: ({ entry: { id } }) => {
         return (
-          <div>
+          <>
             <Link href={type === 'public' ? `/organizations/${organizationId}/jobs/${id}` : `/dashboard/jobs/${id}`}>
               View
-            </Link>{' '}
-            {type === 'dashboard' && <Link href={`/dashboard/jobs/${id}/update`}>Update</Link>}
-          </div>
+            </Link>
+            {type === 'dashboard' && (
+              <>
+                {' '}
+                <Link href={`/dashboard/jobs/${id}/update`}>Update</Link>
+              </>
+            )}
+          </>
         );
       },
     },
