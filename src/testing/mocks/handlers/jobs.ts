@@ -50,4 +50,25 @@ const createJobHandler = rest.post(`${API_URL}/jobs`, async (req, res, ctx) => {
   return res(ctx.delay(300), ctx.status(200), ctx.json(job));
 });
 
-export const jobsHandlers = [getJobsHandler, getJobHandler, createJobHandler];
+const patchJobHandler = rest.patch(`${API_URL}/jobs/:jobId`, async (req, res, ctx) => {
+  const jobId = req.params.jobId as string;
+
+  const job = db.job.findFirst({
+    where: {
+      id: {
+        equals: jobId,
+      },
+    },
+  });
+
+  if (!job) {
+    return res(ctx.delay(300), ctx.status(404), ctx.json({ message: 'Not found!' }));
+  }
+  const jobData = await req.json();
+
+  const updated = db.job.update({ where: { id: { equals: job.id } }, data: { ...job, ...jobData } });
+
+  return res(ctx.delay(300), ctx.status(200), ctx.json(updated));
+});
+
+export const jobsHandlers = [getJobsHandler, getJobHandler, createJobHandler, patchJobHandler];
